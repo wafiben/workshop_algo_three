@@ -1,0 +1,30 @@
+PROCEDURE first-and-last-positions (T: TAB, X: float, VAR pos1, pos2: integer)
+VAR
+ j,i:INTEGER
+BEGIN
+i:=0;
+j:=0;
+FOR i FROM 0 TO TAB.length-1 STEP 1 DO
+ IF (X=TAB[i]) THEN
+      pos1:=i;
+      BREAK
+ END_IF
+END_FOR
+FOR j FROM TAB.length TO 0 STEP -1  DO
+    IF (X=TAB[j]) THEN
+         pos2:=j
+         BREAK
+    END_IF
+END_FOR 
+END; 
+ALGORITHM POSITION
+VAR
+    table: TAB;
+    t:FLOAT
+    last_postion,first_position:INTEGER
+BEGIN
+    last_postion:=0;
+    first_position:=0;
+     first-and-last-positions(table,first_position,last_postion)
+     Write(first_position,last_postion)
+END

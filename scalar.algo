@@ -1,0 +1,13 @@
+FUNCTION scalar(x,y:FLOAT) : FLOAT  
+VAR 
+BEGIN
+    RETURN x*y;
+END 
+-----------------------------------------------------
+ALGORITHM PRODUCT
+VAR
+   produit,a,b:FLOAT
+BEGIN
+   produit:= scalar( a,b);
+   Write(produit)
+END

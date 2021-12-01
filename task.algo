@@ -1,0 +1,52 @@
+FUNCTION is_separator(d: character) : BOOLEAN
+VAR
+    
+BEGIN
+    IF (d=' ' OR d=',' OR d=';' OR d='.') THEN
+        RETURN TRUE 
+    ELSE
+        RETURN FALSE 
+    END_IF
+END   
+FUNCTION is_letter(d: character) : BOOLEAN
+VAR
+    set_declarations
+BEGIN
+    IF (d>='a' AND d<='z' OR d>='A' AND d<='Z' ) THEN
+        RETURN TRUE
+    ELSE
+        RETURN FALSE 
+    END_IF
+END
+FUNCTION is_digit(d:character) : BOOLEAN
+VAR
+BEGIN
+    IF (d>='0' AND d<='9') THEN
+        RETURN TRUE
+    ELSE
+        RETURN FALSE
+    END_IF
+   
+END 
+
+ALGORITHM static
+VAR
+    nb_separator,nb_letter,nb_digit:INTEGER
+    c:CHAR
+BEGIN
+nb_separator:=0;
+nb_digit:=0;
+    WHILE (c<>'#') DO
+   IF (is_separator(c)=TRUE) THEN
+       nb_separator:=nb_separator+1;
+   END_IF
+        IF (is_digit(c)=TRUE) THEN
+            nb_digit:=nb_digit+1;
+
+        END_IF
+        IF (is_letter(c)=TRUE) THEN
+            nb_letter:=nb_letter+1;
+        END_IF
+    Write(nb_letter,nb_digit,nb_separator)
+    END_WHILE
+END

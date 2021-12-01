@@ -1,0 +1,22 @@
+FUNCTION scalar(v1,v2:TAB) : FLOAT
+VAR
+    i:INTEGER;
+    ps:FLOAT;
+BEGIN
+    FOR i FROM 0 TO v1.length-1 STEP 1 DO
+     FOR j FROM 0 TO v2.length-1 STEP 1  DO
+         ps:=v1[i]*v2[j]+ps;
+     END_FOR
+    END_FOR
+    RETURN ps
+END
+----------
+ALGORITHM PRODUCT
+VAR
+    table_one: ARRAY_OF INTEGER;
+    table_two: ARRAY_OF INTEGER;
+     product_multiple:FLOAT
+BEGIN
+   product_multiple= scalar(table_one,table_two);
+   Write(product_multiple)
+END
